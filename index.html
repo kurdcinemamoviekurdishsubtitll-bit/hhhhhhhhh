@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Security Alert</title>
+    <style>
+        body {
+            background-color: #0b0b0b;
+            color: #00ff00;
+            font-family: monospace;
+            padding: 20px;
+            direction: ltr;
+            text-align: left;
+        }
+        .red { color: #ff3333; font-weight: bold; }
+        .yellow { color: #ffcc00; }
+        .box {
+            border: 2px solid #ff3333;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #1a0000;
+        }
+        #final-screen {
+            text-align: center;
+            margin-top: 80px;
+            direction: rtl;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <div class="red">==========================================</div>
+        <div class="red">       🚨 WARNING: SYSTEM BREACH! 🚨      </div>
+        <div class="red">==========================================</div>
+    </div>
+
+    <div id="console"></div>
+
+    <script>
+        const consoleDiv = document.getElementById('console');
+        const messages = [
+            "[+] پەیوەستبوون بە مانگی مصنوعی و شوێنپێهەڵگرتن...",
+            "[+] ئایپی ئامانج دۆزراوەتەوە: 192.168.45.89",
+            "[+] شوێنی جوگرافی (GPS) دیاری کرا: [Lat: 35.6542, Lon: 45.1234]",
+            "[+] دەستبەسەرداگرتنی کامێرای پێشەوە و مایکرۆفۆن...",
+            "[+] دزینی وێنەکان و نامەکانی واتسአپ...",
+            "[+] ناردنی هەموو داتاکان بۆ سێرڤەری دەرەکی (DarkWeb)..."
+        ];
+
+        let i = 0;
+        function showMessage() {
+            if (i < messages.length) {
+                consoleDiv.innerHTML += `<p class="yellow">${messages[i]}</p>`;
+                i++;
+                setTimeout(showMessage, 900);
+            } else {
+                setTimeout(() => {
+                    document.body.innerHTML = `
+                        <div id="final-screen">
+                            <h1 style="color: #ff3333; font-size: 28px;">⚠️ کۆنتڕۆڵی تەواوی ئامێرت کەوتە دەستمان! ⚠️</h1>
+                            <hr style="border: 1px solid #ff3333; width: 60%; margin: 20px auto;">
+                            <h2 style="color: #ffcc00; font-size: 32px;">ههههههههههههههههههههههههههههە! 😆</h2>
+                            <p style="font-size: 20px; color: #ffffff;">کاکە گیان ئەمە تەنها پڕانێکی وێبی بوو و هیچ نەدزرا!</p>
+                            <p style="font-size: 18px; color: #00ff00;">مۆبایلەکەت سەد لە سەد پاک و سەلامەتە! 😉</p>
+                        </div>
+                    `;
+                }, 1500);
+            }
+        }
+        setTimeout(showMessage, 1000);
+    </script>
+
+</body>
+</html>
